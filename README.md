@@ -9,7 +9,9 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
 - Tener instalado NodeJS 20.0 o superior.
 
 ## Instalación
-1. Clona el repositorio en tu carpeta usando `git clone https://github.com/EdsonSaldivar/Phishing.git`:
+1. Clona el repositorio en tu carpeta usando
+   ```bash
+   git clone https://github.com/EdsonSaldivar/Phishing.git
 
 2. Instala las siguientes dependencias utilizando `npm install`:
    ```bash
@@ -22,6 +24,9 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
       - package-lock.json
 
 4. Modifica las credenciales de tu base de datos en el script `utils/db.js` el cual contiene la conexión a la base de datos en mongodb en todo momento para que puedas hacer uso de ella desde cualquier parte del laboratorio
+
+## Nota importante sobre 2FA y el uso de correos:
+El script para enviar correos se encuentra en `views/authentication.html` en este se hace referencia al template de emailjs que se está utilzando, para modificar esto y enviar correos a diferentes usuarios o cambiar el usuario de destino, por favor ingresa en (https://www.emailjs.com/) y crea tu template para copiarla en `views/authentication.html` con la configuración de tu preferencia
 
 ## Uso
 1. Navega a la carpeta del proyecto e inicia la aplicación con el siguiente comando:
