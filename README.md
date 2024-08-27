@@ -9,10 +9,7 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
 - Tener instalado NodeJS 20.0 o superior.
 
 ## Instalación
-1. Crea un proyecto básico en Express.js:
-   ```bash
-   npx express-generator phishing-htb
-   cd phishing-htb
-   npm install
+1. Clona el repositorio en tu carpeta usando `git clone `:
 2. Instala las siguientes dependencias utilizando `npm install`:
-   `npm install ejs express get-client-ip mongodb nodemon`
+   ```bash
+   npm install ejs express get-client-ip mongodb nodemon
