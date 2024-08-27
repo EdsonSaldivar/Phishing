@@ -21,6 +21,8 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
       - package.json
       - package-lock.json
 
+4. Modifica las credenciales de tu base de datos en el script `utils/db.js` el cual contiene la conexión a la base de datos en mongodb en todo momento para que puedas hacer uso de ella desde cualquier parte del laboratorio
+
 ## Uso
 1. Navega a la carpeta del proyecto e inicia la aplicación con el siguiente comando:
    ```bash
@@ -29,12 +31,10 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
 2. Abre tu navegador y accede a `localhost:3000/login` para empezar a visualizar y probar el laboratorio de phishing.
 
 ## Ejemplo de ataque de phishing
-Se le envía un correo a la víctima con el siguiente mensaje:
+1. Se le envía un correo a la víctima con el siguiente mensaje:
 
-De parte de Hack The Box, nos comprometemos a la seguridad de nuestros usuarios y para verificar que tu contraseña esté asegurada, te solicitamos iniciar sesión en nuestra siguiente liga: "localhost:3000/login".
-El usuario ingresa a la URL e inicia sesión. Una vez que el usuario completa el proceso, se le presenta una pantalla de agradecimiento por verificar sus credenciales y se le redirige a la página oficial de Hack The Box: https://www.hackthebox.com/.
+De parte de Hack The Box, nos comprometemos a la seguridad de nuestros usuarios y para verificar que tu contraseña esté asegurada, te solicitamos iniciar sesión en nuestra siguiente liga: (localhost:3000/login).
 
-css
-Copiar código
+2. El usuario ingresa a la URL e inicia sesión. Una vez que el usuario completa el proceso, se le presenta una pantalla de agradecimiento por verificar sus credenciales y se le redirige a la página oficial de Hack The Box: (https://www.hackthebox.com/).
 
-Este archivo proporciona toda la información necesaria para instalar, ejecutar y entender el uso del proyecto. Si necesitas agregar más detalles, como la configuración de EmailJS o la base de datos MongoDB, puedes incluir una sección adicional. ¿Te gustaría añadir algo más?
+3. El atacante puede verificar la información proporcionada por el usuario al llenar el formulario en la base de datos
