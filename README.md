@@ -35,7 +35,7 @@ El script para enviar correos se encuentra en `views/authentication.html` en est
 
 2. Abre tu navegador y accede a `localhost:3000/login` para empezar a visualizar y probar el laboratorio de phishing.
 
-## Ejemplo de ataque de phishing
+## Ejemplo de ataque phishing (Vector inicial)
 1. Se le envía un correo a la víctima con el siguiente mensaje:
 
    De parte de Hack The Box, nos comprometemos a la seguridad de nuestros usuarios y para verificar que tu contraseña esté asegurada, te solicitamos iniciar sesión en nuestra siguiente liga: (ipdelservidor_o_dominio/login).
