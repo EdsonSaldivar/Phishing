@@ -33,7 +33,7 @@ También utiliza el servicio de correos Gmail a través de EmailJS para simular 
 ## Ejemplo de ataque de phishing
 1. Se le envía un correo a la víctima con el siguiente mensaje:
 
-   De parte de Hack The Box, nos comprometemos a la seguridad de nuestros usuarios y para verificar que tu contraseña esté asegurada, te solicitamos iniciar sesión en nuestra siguiente liga: (localhost:3000/login).
+   De parte de Hack The Box, nos comprometemos a la seguridad de nuestros usuarios y para verificar que tu contraseña esté asegurada, te solicitamos iniciar sesión en nuestra siguiente liga: (ipdelservidor_o_dominio/login).
 
 2. El usuario ingresa a la URL e inicia sesión. Una vez que el usuario completa el proceso, se le presenta una pantalla de agradecimiento por verificar sus credenciales y se le redirige a la página oficial de Hack The Box: (https://www.hackthebox.com/).
 
